@@ -126,7 +126,9 @@ $$ d_x(n, T) = 0 $$
 
 Short-time AMDF는 다음과 같이 정의한다.
 
-$$ {\gamma}_{x}(k) = \sum_{n=0}^{N-1-k}|x[n+k]-x[n]| $$
+```math
+{\gamma}_{x}(k) = \sum_{n=0}^{N-1-k}|x[n+k]-x[n]|
+```
 
 - pitch detection에서 유용하다.
 
@@ -162,11 +164,17 @@ $$ x[n] = \tilde{x}[n] + e[n] = \sum_{i=1}^{p}a_{i}x[n-i] + e[n] $$
 
 - **Linear Predictive Cepstral Coefficient**(LPCC)
 
-  - $C_0 = \ln p$
+```math
+$C_0 = \ln p$
+```
 
-  - $C_m = {\alpha}_m + \sum_{k=1}^{m-1}{{k} \over {m}}C_k {\alpha}_{m-k}$     when $1<m<p$
+```math
+C_m = {\alpha}_m + \sum_{k=1}^{m-1}{{k} \over {m}}C_k {\alpha}_{m-k} \quad when \, 1<m<p
+```
 
-  - $C_m = \sum_{k=m-p}^{m-1}{{k} \over {m}}C_k {\alpha}_{m-k} $     when $m>p$
+```math
+C_m = \sum_{k=m-p}^{m-1}{{k} \over {m}}C_k {\alpha}_{m-k} \quad when \, m>p
+```
   
 ---
 
