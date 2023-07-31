@@ -164,16 +164,20 @@ $$ x[n] = \tilde{x}[n] + e[n] = \sum_{i=1}^{p}a_{i}x[n-i] + e[n] $$
 
 - **Linear Predictive Cepstral Coefficient**(LPCC)
 
+    - 2번째: $1<m<p$
+    
+    - 3번째: $m>p$
+
 ```math
-$C_0 = \ln p$
+C_0 = \ln p
 ```
 
 ```math
-C_m = {\alpha}_m + \sum_{k=1}^{m-1}{{k} \over {m}}C_k {\alpha}_{m-k} \quad when \, 1<m<p
+C_m = {\alpha}_m + \sum_{k=1}^{m-1}{{k} \over {m}}C_k {\alpha}_{m-k}
 ```
 
 ```math
-C_m = \sum_{k=m-p}^{m-1}{{k} \over {m}}C_k {\alpha}_{m-k} \quad when \, m>p
+C_m = \sum_{k=m-p}^{m-1}{{k} \over {m}}C_k {\alpha}_{m-k}
 ```
   
 ---
