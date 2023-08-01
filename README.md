@@ -53,6 +53,20 @@ Instructor : Quan Wang(Software Engineer, Google)</br>
 
   > sound processing programs: SoX, FFmpeg
 
+- [Short-time analysis, Post-processing](https://github.com/erectbranch/Speaker_Recognition_Basic/tree/master/Section04/summary01)
+
+  > short-time analysis: framing(frame size, frame step), window function(Gaussian, Hanning, Hamming)
+
+  > Frame post-processing: frame stacking, frame subsampling, frame normalization
+
+- [Time domain feature, Frequency domain feature](https://github.com/erectbranch/Speaker_Recognition_Basic/tree/master/Section04/summary02)
+
+  > Time domain features: short-time enearge, short-time average magnitude, short-time zero cross rate, short-time auto-correlation, short-time average magnitude difference fuction, short-time linear predictive coding
+
+  > Frequency domain features: Discrete Fourier Transform(DFT), Fast Fourier Transform(FFT), Short-Time Fourier Transform(STFT), Spectrogram, Cepstrum
+
+  > Commonly used features: Perceptual Linear Prediction(PLP), Mel-Frequency Cepstral Coefficients(MFCC), Power-Normalized Cepstral Coefficient(PNCC), Log-mel Filterbank Energies(LFBE)
+
 </br>
 
 ## :mag: Schedule
