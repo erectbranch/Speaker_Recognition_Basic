@@ -200,3 +200,105 @@ speaker recognition 문제는 imposter의 record attacks에 취약할 수밖에 
   unconfident. 따라서 final decision을 위해 expensive model을 사용한다.
 
 ---
+
+## 5.5 System Workflow
+
+speech recognition system의 workflow는 다음과 같이 크게 3단계로 구성된다.
+
+- model development
+
+  - training stage
+
+- model at runtime
+
+  - enrollment stage
+
+  - recognition stage
+
+---
+
+### 5.5.1 Training Stage
+
+machine learning model을 학습시키는 단계로, 모델은 statistical model일 수도 있고, weight/bias를 갖는 neural network일 수도 있다. 다만 이때 단순히 "model"이라고 지칭하면 안 된다. 각 speaker에 dependency를 갖는가에 따라서도 model의 성격이 크게 달라지기 때문이다.
+
+- **speaker-dependent** model
+
+  voiceprint와 같이 각 speaker의 representation을 갖는다.
+
+  - speaker embedding
+
+  - speaker profile
+
+- **speaker-independent** model
+
+  speaker embedding을 만들어내는 global machine learning model을 갖는다.
+
+  - speaker encoder
+
+---
+
+#### 5.5.1.1 Embedding Learning
+
+이처럼 speech recognition은 **embedding learning** problem(=representation learning)으로 볼 수 있다.
+
+- **speaker encoder**
+
+  feature frames으로 구성된 sequence를 단일 fixed-dimension vector로 변환한다. 
+  
+  - training: speaker encoder의 parameter를 학습하는 단계이다. (runtime에서는 parameter가 고정된다.)
+
+  - sequence of feature frames: feature extraction을 통해 얻는다.
+
+  - vector: speaker embedding과 동의어. speaker의 unique feature를 나타낸다.
+
+    speaker embedding의 대표적인 예시로 supervector, i-vector, d-vector가 있다.
+
+---
+
+### 5.5.2 Enrollment Stage
+
+다음은 runtime에 해당되는 enrollment stage를 살펴보자.
+
+![enrollment stage](images/enrollment_stage.png)
+
+- 여러 speaker가 multiple enrollment audio clips를 제공한다.
+
+- **Aggregation** 
+
+  embedding을 profile로 변환하는 과정을 의미한다. 대표적으로 average, normalize-and-average, concatenate 같은 방법이 있다.
+
+  - 각 speaker는 multiple enrollment utterances를 가진다. 이를 바탕으로 speaker embedding을 얻는다.
+
+  - 각 embedding은 speaker의 single representation으로 aggregate된다.
+ 
+- 출력으로 speaker profile을 얻는다.
+
+---
+
+### 5.5.3 Recognition Stage
+
+runtime의 recognition stage은 다음과 같이 진행된다.
+
+![recognition stage](images/recognition_stage.png)
+
+- enrollment stage와 동일한 feature extraction과 speaker encoder 과정을 거친다.
+
+- speaker encoder의 출력은 이전에 등록된 speaker profile과 비교된다.
+
+---
+
+### 5.5.4 Summary of System Workflow
+
+stage별 입출력을 바탕으로 system workflow를 요약하면 다음과 같다.
+
+![system workflow](images/system_workflow.png)
+
+| Stage | Inputs | Outputs |
+| :---: | :---: | :---: |
+| Training | Training data<br/>(Audio clips from many different speaker) | speaker encoder |
+| Enrollment | Enrollment audio from the target speaker | Speaker profile of the target speaker |
+| Recognition | Runtime audio | Verification/Identification result |
+
+이론적으로는 위 세 가지 과정에서 사용하는 feature extraction이 동일해야 한다. (동일한 frame step/size, window function, FFT, filterbanks 등) 하지만 실제 training에서는 feature extraction 전/후 과정에서 augmentation이 적용되는 경우가 많다.
+
+---
