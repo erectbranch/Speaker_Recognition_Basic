@@ -67,6 +67,16 @@ Instructor : Quan Wang(Software Engineer, Google)</br>
 
   > Commonly used features: Perceptual Linear Prediction(PLP), Mel-Frequency Cepstral Coefficients(MFCC), Power-Normalized Cepstral Coefficient(PNCC), Log-mel Filterbank Energies(LFBE)
 
+### ⚙️ Fundamentals of Speaker Recognition
+
+- [Speaker Verification, Speaker Identification](https://github.com/erectbranch/Speaker_Recognition_Basic/tree/master/Section05/summary01)
+
+  > speech vs speaker recognition, speaker verification, speaker identification
+
+  > Textual content(Text-Dependent, Text-Independent, Text-Prompted)
+
+  > system workflow: training(speaker encoder, embedding), enrollment(aggregation), recognition
+
 </br>
 
 ## :mag: Schedule
