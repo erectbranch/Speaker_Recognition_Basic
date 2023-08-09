@@ -77,6 +77,14 @@ Instructor : Quan Wang(Software Engineer, Google)</br>
 
   > system workflow: training(speaker encoder, embedding), enrollment(aggregation), recognition
 
+- [Similarity Score, Evaluation](https://github.com/erectbranch/Speaker_Recognition_Basic/tree/master/Section05/summary02)
+
+  > Thresholding, Similarity Score(Cosine Similarity, Euclidean Distance, Model-based similarity score), Score Triaging
+
+  > Evaluation: Pair-based Evaluation, Set-based Evaluation
+
+  > False Accept Rate(FAR), False Reject Rate(FRR), ROC curve(Area Under Curve(AUC)), DET curve, Equal Error Rate(EER), Minimum Detection Cost Function(minDCF) 
+
 </br>
 
 ## :mag: Schedule
