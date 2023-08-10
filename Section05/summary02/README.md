@@ -430,3 +430,85 @@ $$ C_{Det} = C_{FR} \cdot \mathrm{FRR} \cdot P_T + C_{FA} \cdot FAR \cdot P_I $$
 | Identification accuracy | number of candidate speakers $k$ |
 
 ---
+
+## 5.13 Score Normalization
+
+하지만 앞서 threshold를 설정할 때, 모든 speaker가 동일한 global threshold를 가지도록 했다. 그러나 이는 각 speaker의 특징을 반영하지 못하는 단점이 있다.
+
+- 예를 들어 어떤 speaker는 더 "varied"한 목소리를 가질 수 있고, 반면 어떤 speaker는 비교적 "constant"한 목소리를 가질 수 있다.
+
+  이러한 차이가 embedding space에서의 distribution 차이를 만든다.
+
+  ![varied vs constant](images/varied_vs_constant.png)
+
+따라서 scores variabilities를 줄이기 위한 **Score normalization** 방법이 필요하다.
+
+- speaker-dependent threshold를 얻을 수 있다.
+
+- domain adaptation에 유리하다.
+
+  이미 domain A data으로 학습한 model에, domain B data의 샘플을 이용하여 score normalization을 수행하면, domain B data에서 더 나은 성능을 얻을 수 있다.
+
+이러한 score normalization은 training과 evaluation 단계 사이에서 수행하는 **fine-tuning** 단계로 볼 수 있다. 따라서 <U>test data를 사용해서는 안 되며</U>(cheating) training data(혹은 hold-out dev data)를 사용해야 한다.
+
+---
+
+### 5.13.1 Z-norm
+
+표준값이라고도 불리는 **Z-norm**(Zero normalization, Z score)을 사용할 수 있다.
+
+![Z-norm](images/Z-norm.png)
+
+- 여러 speaker로부터 얻은 $N$ utterances를 하나의 cohort로 묶는다.
+
+- target speaker에 대해 $N$ uttereances의 score를 매긴다.
+
+- scores의 평균 $\mu$ 와 표준편차 $\sigma$ 를 구한다.
+
+- runtime
+
+  - target speaker에 대한 runtime audio의 score를 매긴다.
+  
+  - score는 $\mu$ , $\sigma$ 에 의해 normalize된다.
+
+---
+
+### 5.13.2 T-norm
+
+또 다른 대표적인 normalization을 방법으로는 **T-norm**(Test normalization)이 있다. 
+
+![T-norm](images/T-norm.png)
+
+- N speakers에 대해 runtime audio의 score를 매긴다.
+
+- scores의 평균 $\mu$ 와 표준편차 $\sigma$ 를 구한다.
+
+- target speaker에 대해 runtime audio의 score를 매긴다.
+
+  - score는 $\mu$ , $\sigma$ 에 의해 normalize된다.
+
+하지만 runtime에서 계산을 수행하는 만큼 computational cost가 커지고 latency가 발생한다.
+
+---
+
+### 5.13.3 Adaptive T-norm
+
+**Adaptive T-norm**에서는 평균 $\mu$ 와 표준편차 $\sigma$ 을 구하기 위해 모든 $N$ speaker를 사용하지 않는다. 대신 target speaker와 가장 근접한 $M$ speaker subset를 사용한다. ( $M < N$ )
+
+- 이러한 특성 덕분에 $\sigma$ 가 너무 커지는 현상도 방지할 수 있다.
+
+---
+
+### 5.13.4 Other normalizations
+
+- TZ-norm
+
+  먼저 T-norm을 적용하고 Z-norm을 적용한다.
+
+- S-norm
+
+  T-norm과 Z-norm scores를 합산한다.
+
+  > Symmetric normalization의 줄임말이다.
+
+---
