@@ -22,7 +22,9 @@
 
 Factor analysis에서 deviation(편차)은 다음과 같이 표현한다.
 
-$$ x_i - {\mu}_i = l_{i1}f_1 + \cdots + l_{ik}f_k + {\epsilon}_i $$
+```math
+x_i - {\mu}_i = l_{i1}f_1 + \cdots + l_{ik}f_k + {\epsilon}_i
+```
 
 - $x_i$ : $p$ 개 임의의 변수 중 $i$ 번째 변수
 
