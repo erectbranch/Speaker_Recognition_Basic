@@ -85,6 +85,24 @@ Instructor : Quan Wang(Software Engineer, Google)</br>
 
   > False Accept Rate(FAR), False Reject Rate(FRR), ROC curve(Area Under Curve(AUC)), DET curve, Equal Error Rate(EER), Minimum Detection Cost Function(minDCF) 
 
+### 📻 Early Speaker Recognition Approaches
+
+- [Gaussian Mixture Models](https://github.com/erectbranch/Speaker_Recognition_Basic/tree/master/Section06/summary01)
+
+  > Gaussian Distribution, Multivariate Gaussian Distribution
+  
+  > Gaussian Mixture Model(GMM): sharing covariance matrix/simpler covariance matrix(diagonal covariance matrix), parameter estimation(Expectation-Maximization algorithm)
+
+  > Universal Background Model(UBM), Bayesian Adaptation, GMM-UBM, supervector
+
+  > Support Vector Machine(SVM): linear SVM, linear SVM with soft margin, non-linear SVM(kernel trick)
+
+- [Joint Factor Analysis, i-vector](https://github.com/erectbranch/Speaker_Recognition_Basic/tree/master/Section06/summary02)
+
+  > Factor Analysis: observed/unobserved, correlated/uncorrelated variables, common factor, unique factor, loading matrix
+
+  > Joint Factor Analysis, JFA-SVM, i-vector(channel compensation)
+
 </br>
 
 ## :mag: Schedule
