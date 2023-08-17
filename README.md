@@ -21,7 +21,7 @@ Instructor : Quan Wang(Software Engineer, Google)</br>
 
 - **음성 처리 기법을 파악**
 
-  > 음항학과 음성 데이터 처리 기법을 파악한다.
+  > 음향학과 음성 데이터 처리 기법을 파악한다.
 
 </br>
 
@@ -102,6 +102,14 @@ Instructor : Quan Wang(Software Engineer, Google)</br>
   > Factor Analysis: observed/unobserved, correlated/uncorrelated variables, common factor, unique factor, loading matrix
 
   > Joint Factor Analysis, JFA-SVM, i-vector(channel compensation)
+
+### 🧠 Speaker Recognition with Deep Learning
+
+- [Indirect/direct use of Neural Network, Inference](https://github.com/erectbranch/Speaker_Recognition_Basic/tree/master/Section08/summary01)
+
+  > Indirect use(Tandem deep features, DNN i-vector, j-vector), Direct use(neural network encoder, embeddings, loss function, optimizer)
+
+  > Inference: Frame-independent, Fixed window, Full sequence(RNN, attention), Sliding window(RNN, attention)
 
 </br>
 
