@@ -9,7 +9,7 @@
   
 <b>강의 주제: Audio processing, Feature extraction, Speaker recognition</b></br>
 Instructor : Quan Wang(Software Engineer, Google)</br>
-[[course](https://efficientml.ai/schedule/)] | [[udemy](https://www.udemy.com/course/speaker-recognition/)]</b>
+[[course](https://www.udemy.com/course/speaker-recognition/)]</b>
 
 </div>
 
